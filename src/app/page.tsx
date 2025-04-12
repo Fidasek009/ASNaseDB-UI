@@ -1,3 +1,9 @@
+import proteinData from '@/util/demo_protein_data.json';
+import ProteinTable from '@/components/ProteinTable';
+
+
 export default function Home() {
-    return <h1>Hello friend.</h1>;
+    return (
+        <ProteinTable proteinData={proteinData} />
+    )
 }
