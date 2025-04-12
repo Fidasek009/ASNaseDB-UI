@@ -25,17 +25,17 @@ export default function Home() {
                         <ClassCard video="/images/7OS6.mp4" title="Class 3" link="/class/3" />
                     </Grid>
                 </Grid>
+
+                <Typography variant="h3" color="primary" gutterBottom>
+                    Experimentally Studied Proteins
+                </Typography>
+                <ProteinTable proteinData={proteinData} />
+
+                <Typography variant="h3" color="primary" gutterBottom>
+                    Swiss-Prot Sequences
+                </Typography>
+                <ProteinTable proteinData={proteinData} />
             </div>
-
-            <Typography variant="h3" color="primary" gutterBottom>
-                Experimentally Studied Proteins
-            </Typography>
-            <ProteinTable proteinData={proteinData} />
-
-            <Typography variant="h3" color="primary" gutterBottom>
-                Swiss-Prot Sequences
-            </Typography>
-            <ProteinTable proteinData={proteinData} />
 
             <Typography variant="h3" color="primary" gutterBottom>
                 What Are Asparaginases?

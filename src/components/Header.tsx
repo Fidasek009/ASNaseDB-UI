@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Typography, useTheme, Menu, MenuItem, IconButton } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
 
-
 export default function Header() {
     const theme = useTheme();
     const [menuAnchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

@@ -1,4 +1,3 @@
-
 export default interface ProteinData {
     family: string | null;
     alternative: string | null;
