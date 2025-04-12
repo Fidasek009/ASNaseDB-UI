@@ -68,8 +68,17 @@ const columns: GridColDef[] = [
 const paginationModel = { page: 0, pageSize: 10 };
 
 export default function ProteinTable({ proteinData }: ProteinTableProps) {
+    let totalWidth = 0;
+    columns.forEach((column) => {
+        if (column.width) {
+            totalWidth += column.width;
+        }
+    });
+
+    const tableWidth = totalWidth + 50; // 50px for checkbox selection
+
     return (
-        <Paper>
+        <Paper sx={{ width: tableWidth, overflow: "hidden", marginTop: 2 }}>
             <DataGrid
                 rows={proteinData}
                 columns={columns}
@@ -77,7 +86,11 @@ export default function ProteinTable({ proteinData }: ProteinTableProps) {
                 initialState={{ pagination: { paginationModel } }}
                 pageSizeOptions={[5, 10, 25]}
                 checkboxSelection
-                sx={{ border: 0 }}
+                sx={{
+                    border: 0,
+                    "& .MuiDataGrid-columnHeader": { backgroundColor: "primary.main" },
+                    width: tableWidth,
+                }}
             />
         </Paper>
     );
