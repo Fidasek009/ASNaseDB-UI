@@ -4,6 +4,7 @@ npm-debug.log
 .next
 out
 .vscode
+.github
 README.md
 .env
 .env.local
