@@ -2,14 +2,16 @@
 
 import { Search as SearchIcon } from "@mui/icons-material";
 import { TextField, InputAdornment, IconButton, Stack } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
 import ProteinTable from "@/components/ProteinTable";
 
 import { searchProteinData } from "@/util/api";
 import ProteinData from "@/types/ProteinData";
 
-
 export default function Search() {
+    const theme = useTheme();
+
     const [query, setQuery] = useState("");
     const [searchResults, setSearchResults] = useState<ProteinData[]>([]);
     const [loading, setLoading] = useState(false);
@@ -45,6 +47,7 @@ export default function Search() {
                         ),
                     },
                 }}
+                sx={{ backgroundColor: theme.palette.background.default }}
             />
 
             {/* Display search results */}

@@ -28,14 +28,18 @@ export default function Header() {
                     <MenuIcon style={{ width: 50, height: 50, padding: 5 }} />
                 </IconButton>
                 <Menu anchorEl={menuAnchorEl} open={Boolean(menuAnchorEl)} onClose={handleMenuClose}>
-                    <MenuItem href="/">ASNase db</MenuItem>
-                    <MenuItem href="/class/1">Class 1</MenuItem>
-                    <MenuItem href="/class/2">Class 2</MenuItem>
-                    <MenuItem href="/class/3">Class 3</MenuItem>
-                    <MenuItem href="/#proteins">Studied Proteins</MenuItem>
-                    <MenuItem href="/#proteins">Swiss-Prot Sequences</MenuItem>
-                    <MenuItem href="/#proteins">What Are Asparaginases?</MenuItem>
-                    <MenuItem href="/#proteins">About the Database</MenuItem>
+                    <Link href="/" style={{ color: "white", textDecoration: "none" }}>
+                        <MenuItem onClick={handleMenuClose}>ASNase db</MenuItem>
+                    </Link>
+                    <Link href="/class/1" style={{ color: "white", textDecoration: "none" }}>
+                        <MenuItem onClick={handleMenuClose}>Class 1</MenuItem>
+                    </Link>
+                    <Link href="/class/2" style={{ color: "white", textDecoration: "none" }}>
+                        <MenuItem onClick={handleMenuClose}>Class 2</MenuItem>
+                    </Link>
+                    <Link href="/class/3" style={{ color: "white", textDecoration: "none" }}>
+                        <MenuItem onClick={handleMenuClose}>Class 3</MenuItem>
+                    </Link>
                 </Menu>
             </div>
         </header>
