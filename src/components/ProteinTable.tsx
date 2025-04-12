@@ -1,26 +1,13 @@
 "use client";
 
+import ProteinData from "@/types/ProteinData";
+
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Paper } from "@mui/material";
 
-export interface ProteinData {
-    family: string | null;
-    alternative: string | null;
-    accession_number: string | null;
-    name: string | null;
-    ec: string | null;
-    organism: string | null;
-    cellular_location: string | null;
-    amino_acids: number | null;
-    structure: string | null;
-    pdb: string | null;
-    k_m: number | null;
-    v_max: number | null;
-    k_cat: number | null;
-}
-
 export interface ProteinTableProps {
     proteinData: ProteinData[];
+    loading?: boolean;
 }
 
 const columns: GridColDef[] = [
@@ -37,7 +24,7 @@ const columns: GridColDef[] = [
     { field: "organism", headerName: "Organism", width: 200, description: "Organism name" },
     { field: "cellular_location", headerName: "Cell-Loc", width: 150, description: "Cellular location" },
     { field: "amino_acids", headerName: "AAs", width: 50, description: "Number of amino acids" },
-    { field: "structure", headerName: "Structure", width: 200, description: "Structure" },
+    { field: "structure", headerName: "Structure", width: 150, description: "Structure" },
     { field: "pdb", headerName: "PDB", width: 100, description: "PDB ID" },
     {
         field: "k_m",
@@ -67,7 +54,7 @@ const columns: GridColDef[] = [
 
 const paginationModel = { page: 0, pageSize: 10 };
 
-export default function ProteinTable({ proteinData }: ProteinTableProps) {
+export default function ProteinTable({ proteinData, loading }: ProteinTableProps) {
     let totalWidth = 0;
     columns.forEach((column) => {
         if (column.width) {
@@ -80,6 +67,7 @@ export default function ProteinTable({ proteinData }: ProteinTableProps) {
     return (
         <Paper sx={{ width: tableWidth, overflow: "hidden", marginTop: 2 }}>
             <DataGrid
+                loading={loading}
                 rows={proteinData}
                 columns={columns}
                 getRowId={(row) => row.accession_number}
